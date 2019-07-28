@@ -30,7 +30,6 @@ const GroupList = ({
       <div className="d-flex w-100 justify-content-between">
         <h6 className="mb-1">Total: </h6>
         <h6 className="text-success">
-          {console.log(valueTotal)}
           {valueTotal === "0,00"
             ? `R$ ${valuePrice}`
             : valueTotal === ""
