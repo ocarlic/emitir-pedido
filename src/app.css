@@ -1,0 +1,31 @@
+body,
+html {
+  background: #f9f9f9;
+}
+
+.sucessForm {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+}
+
+.container > .row {
+  margin-top: 120px;
+}
+
+label {
+  width: 100%;
+}
+
+label > input,
+label > select {
+  margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+  .container > .row {
+    margin: 20px 0;
+  }
+}
