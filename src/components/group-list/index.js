@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const GroupList = ({
   clientName,
@@ -7,7 +7,7 @@ const GroupList = ({
   itemProduct,
   valuePrice,
   rentabilidadeNivel,
-  valueTotal,
+  valueTotal
 }) => (
   <div className="list-group ">
     <div className="list-group-item list-group-item-action active">
@@ -15,7 +15,9 @@ const GroupList = ({
     </div>
     <div className="list-group-item list-group-item-action flex-column align-items-start">
       <div className="d-flex w-100 justify-content-between">
-        <h5 className="mb-3">{itemProduct.length ? itemProduct[0].name : 'Produto'}</h5>
+        <h5 className="mb-3">
+          {itemProduct.length ? itemProduct[0].name : "Produto"}
+        </h5>
       </div>
       <div className="d-flex w-100 justify-content-between">
         <h6 className="mb-1">Quantidade: </h6>
@@ -28,21 +30,31 @@ const GroupList = ({
       <div className="d-flex w-100 justify-content-between">
         <h6 className="mb-1">Total: </h6>
         <h6 className="text-success">
-          {valueTotal === '0,00' ? `R$ ${valuePrice}` : `R$ ${valueTotal}`}
+          {console.log(valueTotal)}
+          {valueTotal === "0,00"
+            ? `R$ ${valuePrice}`
+            : valueTotal === ""
+            ? `${valueTotal}`
+            : `R$ ${valueTotal}`}
         </h6>
       </div>
       <div className="d-flex w-100 justify-content-between">
         <h6 className="mb-1">Rentabilidade: </h6>
-        <h6 className={rentabilidadeNivel === 'Ruim' ? 'text-danger' : 'text-success'}>
+        <h6
+          className={
+            rentabilidadeNivel === "Ruim" ? "text-danger" : "text-success"
+          }
+        >
           {rentabilidadeNivel}
         </h6>
       </div>
-      {clientName && rentabilidadeNivel !== 'Ruim' && (
+      {clientName && rentabilidadeNivel !== "Ruim" && (
         <small className="text-muted">O pedido está em andamento.</small>
       )}
-      {rentabilidadeNivel === 'Ruim' && (
+      {rentabilidadeNivel === "Ruim" && (
         <small className="text-muted">
-          Rentabilidade ruim, você não pode finalizar assim! Altere o preço do produto
+          Rentabilidade ruim, você não pode finalizar assim! Altere o preço do
+          produto
         </small>
       )}
     </div>
@@ -50,12 +62,12 @@ const GroupList = ({
 );
 
 GroupList.defaultProps = {
-  clientName: '',
-  quantily: '',
-  valuePrice: '',
-  itemProduct: '',
-  rentabilidadeNivel: '',
-  valueTotal: '',
+  clientName: "",
+  quantily: "",
+  valuePrice: "",
+  itemProduct: "",
+  rentabilidadeNivel: "",
+  valueTotal: ""
 };
 
 GroupList.propTypes = {
@@ -64,7 +76,7 @@ GroupList.propTypes = {
   valuePrice: PropTypes.string,
   itemProduct: PropTypes.arrayOf(PropTypes.object),
   rentabilidadeNivel: PropTypes.string,
-  valueTotal: PropTypes.string,
+  valueTotal: PropTypes.string
 };
 
 export default GroupList;
